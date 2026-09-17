@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Design.pro — Дизайн интерьеров{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <h1 class="site-title">
+            <a href="{% url 'home' %}">Design.pro</a>
+        </h1>
+        <nav class="main-nav">
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">Профиль</a>
+                {% if user.is_staff %}
+                    <a href="{% url 'admin-all-requests' %}" class="profile-link">Заявки</a>
+                
+                {% endif %}
+                <a href="{% url 'logout' %}" class="btn">Выход</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn">Вход</a>
+                <a href="{% url 'register' %}" class="btn">Регистрация</a>
+            {% endif %}
+        </nav>
+    
+    </header>
+
+    <main class="main-content">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Design.pro — Дизайн интерьеров</p>
+    </footer>
+</body>
+</html>
