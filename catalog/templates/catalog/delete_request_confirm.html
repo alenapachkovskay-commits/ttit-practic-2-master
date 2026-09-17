@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Удалить заявку | Design.pro{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Подтвердите удаление</h2>
+<p>Вы уверены, что хотите удалить заявку "<strong>{{ request_obj.title }}</strong>"?</p>
+
+<form method="post" class="delete-form">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Да, удалить</button>
+    <a href="{% url 'my_requests' %}" class="cancel-link">Отмена</a>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Личный кабинет | Design.pro{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Привет, {{ user.full_name|default:user.username }}!</h2>
+<p>Вы авторизованы как пользователь.</p>
+
+<ul class="profile-links">
+    {% if user.is_staff %}
+        <li><a href="{% url 'admin-all-requests' %}" class="profile-link">Заявки</a></li>
+    {% else %}
+        <li><a href="{% url 'my_requests' %}" class="profile-link">Мои заявки</a></li>
+        <li><a href="{% url 'create_request' %}" class="profile-link">Создать новую заявку</a></li>
+    {% endif %}
+    <li><a href="{% url 'logout' %}" class="profile-link logout-link">Выход</a></li>
+</ul>
+{% endblock %}

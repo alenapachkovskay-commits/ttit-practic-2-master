@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Добавить категорию | Design.pro{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Добавить новую категорию</h2>
+
+<form method="post" class="auth-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_name">Название категории:</label>
+        <input type="text" name="name" id="id_name" maxlength="200" required>
+    </div>
+    <button type="submit" class="btn">Создать</button>
+    <a href="{% url 'admin-category-list' %}" class="cancel-link">Отмена</a>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% block title %}Завершить заявку{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Завершить заявку</h2>
+
+<p><strong>Заявка:</strong> {{ request.title }}</p>
+<p><strong>Клиент:</strong> {{ request.client.full_name }}</p>
+<p><strong>Описание:</strong> {{ request.description }}</p>
+
+<form method="post" enctype="multipart/form-data" class="admin-action-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="design_image">Загрузите изображение готового дизайна (обязательно):</label><br>
+        <input type="file" name="design_image" id="design_image" accept=".jpg,.jpeg,.png,.bmp" required><br>
+        <small>Форматы: JPG, JPEG, PNG, BMP. Макс. размер: 2 МБ.</small>
+    </div>
+
+    <button type="submit" class="btn">Завершить заявку</button>
+    <a href="{% url 'admin-all-requests' %}" class="cancel-link">Отмена</a>
+</form>
+{% endblock %}

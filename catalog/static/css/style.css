@@ -1,0 +1,759 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Хедер */
+.site-header {
+    background-color: #1a1a1a;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #c9a75e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.site-title a {
+    color: #c9a75e;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.site-title a:hover {
+    color: #e0e0e0;
+}
+
+.main-nav {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.main-nav a,
+.greeting {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.main-nav a:hover {
+    color: #8b2e2e;
+}
+
+.btn {
+    background-color: #8b6b3d;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #c9a75e;
+    color: #000;
+}
+
+/* Основа */
+.main-content {
+    flex: 1;
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.messages {
+    margin-bottom: 24px;
+}
+
+.messages li {
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    border-left: 4px solid #c9a75e;
+}
+
+/* Футер */
+.site-footer {
+    background-color: #1a1a1a;
+    padding: 16px 32px;
+    text-align: center;
+    border-top: 2px solid #c9a75e;
+    margin-top: auto;
+}
+
+.site-footer p {
+    color: #a0a0a0;
+    font-size: 14px;
+}
+
+/* === Главная страница === */
+.main-content h1 {
+    font-size: 32px;
+    margin-bottom: 24px;
+    color: #c9a75e;
+}
+
+.main-content h2 {
+    font-size: 24px;
+    margin: 24px 0 16px 0;
+    color: #e0e0e0;
+}
+
+/* Проекты */
+.projects {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.project {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    min-width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.project h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #c9a75e;
+}
+
+.project p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.project-image {
+    width: 300px;
+    height: auto;
+    margin: 10px 0;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+
+/* Статистика */
+.stats {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    border-left: 4px solid #c9a75e;
+}
+
+.stats h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #c9a75e;
+}
+
+.stats p {
+    font-size: 16px;
+}
+
+/* === Формы (вход, регистрация) === */
+.main-content h2.form-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: #c9a75e;
+    text-align: center;
+}
+
+.login-form,
+.register-form {
+    max-width: 400px;
+    margin: 0 auto 24px auto;
+    background-color: #1a1a1a;
+    padding: 24px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #e0e0e0;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+
+
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+    resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #c9a75e;
+    box-shadow: 0 0 0 2px rgba(201, 167, 94, 0.3);
+}
+
+.form-link {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.form-link a {
+    color: #c9a75e;
+    text-decoration: none;
+}
+
+.form-link a:hover {
+    text-decoration: underline;
+}
+
+.page-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: #c9a75e;
+}
+
+/* Форма фильтрации */
+.filter-form {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.filter-select {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #c9a75e;
+
+}
+
+.requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.requests-table th,
+.requests-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    font-size: 16px;
+}
+
+.requests-table th {
+    background-color: #222;
+    color: #c9a75e;
+    font-weight: bold;
+}
+
+.requests-table tr:last-child td {
+    border-bottom: none;
+}
+
+.table-link {
+    color: #c9a75e;
+    text-decoration: none;
+}
+
+.table-link:hover {
+    text-decoration: underline;
+}
+
+.action-link {
+    color: #8b6b3d;
+    text-decoration: none;
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+.action-link:hover {
+    color: #c9a75e;
+    text-decoration: underline;
+}
+
+/*Ссылки */
+.back-link,
+.cancel-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #c9a75e;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover,
+.cancel-link:hover {
+    text-decoration: underline;
+}
+
+/* === Форма удаления === */
+.delete-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-danger {
+    background-color: #8b2e2e;
+}
+
+.btn-danger:hover {
+    background-color: #c94a4a;
+    color: #fff;
+}
+
+.categories-list {
+    list-style: none;
+    margin: 24px 0;
+    padding: 0;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.category-item span {
+    color: #e0e0e0;
+}
+
+.delete-link {
+    color: #8b2e2e;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.delete-link:hover {
+    text-decoration: underline;
+    color: #c94a4a;
+}
+
+.add-link,
+.cancel-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: #c9a75e;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.add-link:hover,
+.cancel-link:hover {
+    text-decoration: underline;
+}
+
+/* === Личный кабинет === */
+.profile-links {
+    list-style: none;
+    margin: 24px 0;
+    padding: 0;
+}
+
+.profile-link {
+    display: inline-block;
+    padding: 10px 0;
+    color: #c9a75e;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+.logout-link {
+    color: #8b2e2e;
+}
+
+.logout-link:hover {
+    color: #c94a4a;
+}
+
+/* === Мои заявки === */
+.filter-label {
+    font-size: 16px;
+    margin-right: 12px;
+    color: #e0e0e0;
+}
+
+.requests-list {
+    list-style: none;
+    margin: 24px 0;
+    padding: 0;
+}
+
+.request-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #333;
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+.request-item:last-child {
+    border-bottom: none;
+}
+
+.no-requests {
+    font-size: 16px;
+    color: #a0a0a0;
+    margin: 24px 0;
+}
+
+
+
+.auth-form input[type="file"]::file-selector-button {
+    background-color: #8b6b3d;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.auth-form input[type="file"]::file-selector-button:hover {
+    background-color: #c9a75e;
+    color: #000;
+}
+/* === Единый стиль для всех полей ввода внутри auth-form === */
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="number"],
+.auth-form textarea,
+.auth-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+    box-shadow: none;
+}
+
+/* Запрет растягивания только для textarea */
+.auth-form textarea {
+    resize: none;
+}
+
+/* Стиль при фокусе */
+.auth-form input[type="text"]:focus,
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="number"]:focus,
+.auth-form textarea:focus,
+.auth-form select:focus {
+    outline: none;
+    border-color: #c9a75e;
+    box-shadow: 0 0 0 2px rgba(201, 167, 94, 0.3);
+}
+/* === Центрированная форма (регистрация, вход и т.п.) === */
+.centered-form {
+    max-width: 420px;
+    margin: 0 auto 24px auto;
+    background-color: #1a1a1a;
+    padding: 24px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Поля внутри центрированной формы — единый стиль */
+.centered-form input[type="text"],
+.centered-form input[type="email"],
+.centered-form input[type="password"],
+.centered-form input[type="number"],
+.centered-form textarea,
+.centered-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+
+.centered-form textarea {
+    resize: none;
+}
+
+.centered-form input:focus,
+.centered-form textarea:focus,
+.centered-form select:focus {
+    outline: none;
+    border-color: #c9a75e;
+    box-shadow: 0 0 0 2px rgba(201, 167, 94, 0.3);
+}
+
+/* Подписи (label) и параграфы от as_p */
+.centered-form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #e0e0e0;
+}
+
+.centered-form p {
+    margin-bottom: 20px;
+}
+.form-hint {
+    display: block;
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-top: 4px;
+}
+.centered-form input[type="file"]::file-selector-button {
+    background-color: #8b6b3d;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.centered-form input[type="file"]::file-selector-button:hover {
+    background-color: #c9a75e;
+    color: #000;
+}
+
+.centered-form input:focus,
+.centered-form textarea:focus,
+.centered-form input[type="file"]:focus {
+    outline: none;
+    border-color: #c9a75e;
+    box-shadow: 0 0 0 2px rgba(201, 167, 94, 0.3);
+}
+/* === Формы действий администратора (принять, завершить) === */
+.admin-action-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    max-width: 600px; /* не на всю ширину, но и не узкая */
+}
+
+.admin-action-form .form-group {
+    margin-bottom: 16px;
+}
+
+.admin-action-form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #e0e0e0;
+}
+
+/* Поля ввода */
+.admin-action-form input[type="text"],
+.admin-action-form input[type="email"],
+.admin-action-form input[type="password"],
+.admin-action-form input[type="number"],
+.admin-action-form textarea,
+.admin-action-form select,
+.admin-action-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+
+/* Запрет растягивания */
+.admin-action-form textarea {
+    resize: none;
+}
+
+/* Кнопка файла */
+.admin-action-form input[type="file"]::file-selector-button {
+    background-color: #8b6b3d;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.admin-action-form input[type="file"]::file-selector-button:hover {
+    background-color: #c9a75e;
+    color: #000;
+}
+
+/* Фокус */
+.admin-action-form input:focus,
+.admin-action-form textarea:focus,
+.admin-action-form select:focus,
+.admin-action-form input[type="file"]:focus {
+    outline: none;
+    border-color: #c9a75e;
+    box-shadow: 0 0 0 2px rgba(201, 167, 94, 0.3);
+}
+
+/* Мелкий текст (форматы файлов) */
+.admin-action-form small {
+    display: block;
+    color: #a0a0a0;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* === Детальная страница заявки === */
+.request-info {
+    width: 400px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.request-info p {
+    margin-bottom: 10px;
+}
+
+.request-info strong {
+    color: #c9a75e;
+}
+
+/* Изображения заявки */
+.image-section {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #c9a75e;
+}
+
+.request-image {
+    width: 400px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #333;
+    display: block;
+}
+
+/* Комментарий администратора */
+.admin-comment {
+    background-color: #1a1a1a;
+    padding: 16px;
+    border-left: 4px solid #8b6b3d;
+    margin-bottom: 24px;
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+.admin-comment p {
+    margin: 0;
+}
+
+/* Ссылка "назад" */
+.back-link-container {
+    margin-top: 20px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #c9a75e;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.project-link:hover .project {
+    background-color: #222;
+}
+
+.project {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    min-width: 320px;
+    height: 350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s;
+}

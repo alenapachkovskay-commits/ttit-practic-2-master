@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Создать заявку | Design.pro{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Создать заявку на дизайн</h2>
+
+<form method="post" enctype="multipart/form-data" class="auth-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Создать заявку</button>
+</form>
+{% endblock %}

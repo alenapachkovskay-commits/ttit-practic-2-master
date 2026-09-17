@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% block title %}Категории{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Категории</h2>
+
+<ul class="categories-list">
+    {% for cat in categories %}
+    <li class="category-item">
+        <span>{{ cat.name }}</span>
+        <a href="{% url 'admin-category-delete' cat.pk %}" class="delete-link">Удалить</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'admin-category-create' %}" class="add-link">Добавить категорию</a>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2 class="page-title">Все заявки</h2>
+
+<form method="get" class="filter-form">
+    <select name="status" class="filter-select">
+        <option value="">Все статусы</option>
+        <option value="new" {% if status_filter == "new" %}selected{% endif %}>Новая</option>
+        <option value="in_progress" {% if status_filter == "in_progress" %}selected{% endif %}>Принято в работу</option>
+        <option value="completed" {% if status_filter == "completed" %}selected{% endif %}>Выполнено</option>
+    </select>
+    <button type="submit" class="btn">Фильтровать</button>
+</form>
+
+<table class="requests-table">
+    <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Название</th>
+            <th>Клиент</th>
+            <th>Статус</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for req in requests %}
+        <tr>
+            <td>{{ req.created_at|date:"d.m.Y H:i" }}</td>
+            <td><a href="{% url 'request-detail' req.pk %}" class="table-link">{{ req.title }}</a></td>
+            <td>{{ req.client.full_name }}</td>
+            <td>{{ req.get_status_display }}</td>
+            <td>
+                {% if req.status == 'new' %}
+                    <a href="{% url 'admin-take-to-work' req.pk %}" class="action-link">Принять</a>
+                    <a href="{% url 'admin-complete' req.pk %}" class="action-link">Выполнить</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'admin-category-list' %}" class="back-link">Управление категориями</a>
+{% endblock %}

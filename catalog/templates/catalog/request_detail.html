@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}{{ request.title }} | Design.pro{% endblock %}
+
+{% block content %}
+<h2 class="page-title">{{ request.title }}</h2>
+
+<div class="request-info">
+    <p><strong>Описание:</strong> {{ request.description }}</p>
+    <p><strong>Категория:</strong> {{ request.category.name }}</p>
+    <p><strong>Статус:</strong> {{ request.get_status_display }}</p>
+    <p><strong>Дата создания:</strong> {{ request.created_at|date:"d.m.Y H:i" }}</p>
+</div>
+
+{% if request.plan_image %}
+    <div class="image-section">
+        <h3 class="section-title">План помещения</h3>
+        <img src="{{ request.plan_image.url }}" alt="План" class="request-image">
+    </div>
+{% endif %}
+
+{% if request.design_image %}
+    <div class="image-section">
+        <h3 class="section-title">Готовый дизайн</h3>
+        <img src="{{ request.design_image.url }}" alt="Дизайн" class="request-image">
+    </div>
+{% endif %}
+
+{% if request.admin_comment %}
+    <div class="admin-comment">
+        <h3 class="section-title">Комментарий администратора</h3>
+        <p>{{ request.admin_comment }}</p>
+    </div>
+{% endif %}
+
+<div class="back-link-container">
+    {% if user.is_staff %}
+        <a href="{% url 'admin-all-requests' %}" class="back-link">Назад ко всем заявкам</a>
+    {% else %}
+        <a href="{% url 'my_requests' %}" class="back-link">Назад к моим заявкам</a>
+    {% endif %}
+</div>
+{% endblock %}

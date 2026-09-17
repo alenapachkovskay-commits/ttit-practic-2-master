@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Регистрация | Design.pro{% endblock %}
+
+{% block content %}
+<h2 class="form-title">Регистрация нового пользователя</h2>
+
+<form method="post" class="centered-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Зарегистрироваться</button>
+</form>
+
+<p class="form-link">Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+{% endblock %}
